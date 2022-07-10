@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login 05</title>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link href="{{url_for('static',filename = 'assetslogin/css/style.css')}}" rel="stylesheet">
+
+	<script src="{{url_for('static',filename = 'assetslogin/js/jquery.min.js')}}"></script>
+  	<script src="{{url_for('static',filename = 'assetslogin/js/popper.js')}}"></script>
+  	<script src="{{url_for('static',filename = 'assetslogin/js/bootstrap.min.js')}}"></script>
+  	<script src="{{url_for('static',filename = 'assetslogin/js/main.js')}}"></script>
+  	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+
+<body>
+<main style="background-image: url({{ url_for('static', filename='assetslogin/images/bg.jpg') }}); background-size: cover; background-repeat: no-repeat; position: fixed; background-attachment: scroll; background-position: 50% 50%; top: 0; right: 0; bottom: 0; left: 0; content: ""; z-index: 0;">
+	<section class="ftco-section collapse show" id="Login">
+		<div class="container">
+			<!-- It occupies too much space
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Login</h2> 
+				</div>
+			</div>-->
+			<div class="row justify-content-center">
+				<div class="col-md-7 col-lg-5">
+					<div class="wrap">
+						<div class="img" style="background-image: url({{ url_for('static', filename='assetslogin/images/stemma.jpeg') }});">
+						
+						</div>
+						<div class="login-wrap p-4 p-md-5">
+							<div class="d-flex">
+								<div class="w-100">
+									<h3 class="mb-4">Sign Up</h3> 
+								</div>
+								<div class="w-100">
+									<p class="social-media d-flex justify-content-end"> <a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a> 	<a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a> </p>
+								</div>
+							</div>
+							{% with messages = get_flashed_messages()%}
+							{% if messages %}
+							<div class="alert alert-danger">
+								{{ messages[0] }}
+							</div>
+							{% endif %}
+							{% endwith %}
+							<form action="#" class="signin-form" method="POST">
+								<div class="form-group mt-3">
+									<input type="email" class="form-control" name="username" required>
+									<label class="form-control-placeholder" for="username">Email*</label>
+								</div>
+								<div class="form-group">
+									<input id="password-field" type="password" class="form-control" name="password" required>
+									<label class="form-control-placeholder" for="password">Password*</label> <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span> 
+								</div>
+								<div class="form-group">
+									<input id="info-field" type="text" class="form-control" name="info" required>
+									<label class="form-control-placeholder" for="info">Come ci hai trovato? (Anonimo)</label> <span toggle="#password-field" class="fa fa-fw fa-eye field-icon"></span> 
+								</div>
+								<div class="form-group">
+									<button type="submit" class="form-control btn btn-primary rounded submit px-3">Sign Up</button>
+								</div>
+								<div class="form-group d-md-flex">
+									<div class="w-50 text-left">
+										<label class="checkbox-wrap checkbox-primary mb-0">Remember Me
+											<input type="checkbox" checked> <span class="checkmark"></span> </label>
+									</div>
+									<div class="w-50 text-md-right"> <a href="#">Forgot Password</a> </div>
+								</div>
+							</form>
+							<p class="text-center">Già membro? <a href="{{ url_for('login') }}">Accedi</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</main>
+</html>
